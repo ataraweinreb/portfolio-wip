@@ -116,6 +116,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
         }
 
+        .blurb .intro-name {
+            white-space: nowrap;
+        }
+
         .intro-photo-button {
             position: relative;
             display: inline-block;
@@ -903,6 +907,10 @@
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, Arial, sans-serif;
         }
 
+        .footer-marks {
+            margin-left: 0.5em;
+        }
+
         .clock {
             position: fixed;
             top: 40px;
@@ -956,6 +964,12 @@
             transform: rotate(180deg);
         }
 
+        @media (max-width: 340px) {
+            .blurb .intro {
+                font-size: 24px;
+            }
+        }
+
         @media (max-width: 768px) {
             body {
                 padding: 40px;
@@ -968,6 +982,12 @@
             .blurb {
                 font-size: 18px;
                 margin-top: 0;
+            }
+
+            .footer-marks {
+                display: block;
+                margin-left: 0;
+                margin-top: 4px;
             }
 
             /* Uniform spacing: 30px between blocks, 70px between sections, 16px from title to content */
@@ -1369,7 +1389,7 @@
         <div class="blob"></div>
         <div class="content blurb">
             <p>
-                <span class="intro">Hey, I'm Atara <button type="button" class="intro-photo-button" aria-label="Say hello"><img src="atara-portrait.webp" alt="" class="intro-photo"><span class="portrait-bubble" aria-hidden="true"></span></button> Weinreb.</span>
+                <span class="intro">Hey, I'm <span class="intro-name">Atara <button type="button" class="intro-photo-button" aria-label="Say hello"><img src="atara-portrait.webp" alt="" class="intro-photo"><span class="portrait-bubble" aria-hidden="true"></span></button> Weinreb.</span></span>
                 I'm a creative designer and engineer exploring how AI can expand what we build and how we build it. I'm currently at <button type="button" class="blurb-wordmark-button" aria-label="Google"><img src="google-wordmark.webp" alt="" class="blurb-wordmark"></button>.
             </p>
             <p>
@@ -1709,7 +1729,7 @@
 
         <!-- Footer Section -->
         <div class="footer">
-            <p>Designed and built by Atara Weinreb © 2026  𓅰 𓅬 𓅭 𓅮 𓅯</p>
+            <p>Designed and built by Atara Weinreb © 2026<span class="footer-marks">𓅰 𓅬 𓅭 𓅮 𓅯</span></p>
         </div>
     </div>
 
@@ -1830,11 +1850,14 @@
             }
 
             const googleShows = [showRocket, showConfetti, showKite];
+            const googleShowsMobile = [showConfetti, showKite, showRocket];
+            const googleMobile = window.matchMedia('(max-width: 768px)');
             googleButton.addEventListener('click', () => {
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
                 clearGoogleShow();
-                googleShows[googleShow]();
-                googleShow = (googleShow + 1) % googleShows.length;
+                const shows = googleMobile.matches ? googleShowsMobile : googleShows;
+                shows[googleShow]();
+                googleShow = (googleShow + 1) % shows.length;
             });
         }
 
