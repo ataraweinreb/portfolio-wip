@@ -26,22 +26,22 @@ MAX_BOX = (1800, 1800)
 # (output_stem, primary_url, fallback_url_or_none)
 SOURCES: list[tuple[str, str, str | None]] = [
     (
-        "work-snapchat-creators",
+        "snapchat-creators",
         "https://img.youtube.com/vi/PiKg9DTusHQ/maxresdefault.jpg",
         "https://img.youtube.com/vi/PiKg9DTusHQ/hqdefault.jpg",
     ),
     (
-        "work-scan-multimodal",
+        "scan-visual-search",
         "https://img.youtube.com/vi/lrR7nc_rHJE/maxresdefault.jpg",
         "https://img.youtube.com/vi/lrR7nc_rHJE/hqdefault.jpg",
     ),
     (
-        "work-food-scan",
+        "food-scan",
         "https://images.ctfassets.net/o1znirz7lzo4/2klNhNeZWrSWMHJMNz92jl/f054091269d4cf8199565ffc915a324b/Untitled_presentation__1_.jpg?fm=jpg&q=90&h=2400",
         None,
     ),
     (
-        "work-design-engineering",
+        "snapchat-design-engineering",
         "https://images.ctfassets.net/7w2tf600vbko/16tOH0imttI0D4nn04bveD/ae6bea3fcc1281cbe222538d10cdd46f/JM1_8958__1_.jpg?fm=jpg&q=90&h=2400",
         None,
     ),
